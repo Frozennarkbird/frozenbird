@@ -9,6 +9,9 @@ public class Rand {
         int n = 1 + r.nextInt(99);
         System.out.println("Загадано число от 1 до 100, Попробуйте угадать");
         for (int j = 0; j < 8; j++) {
+            if (n == t) {
+                break;
+            }
             if (n > t) {
                 t = 2 * t - t / 2 - t % 2;
             } else {
@@ -34,7 +37,7 @@ public class Rand {
             }
         }
         if (n != a) {
-            System.out.println("Вы не угадали за 8 попыток, загаданное число " + n);
+            System.out.println("Вы не угадали за 8 попыток, загаданное число " + t);
         }
     }
 }
