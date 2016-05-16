@@ -1,0 +1,43 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Rand {
+    public static void main(String[] args) {
+        Random r = new Random();
+        int a = 0;
+        int t = 50;
+        int n = 1 + r.nextInt(99);
+        System.out.println("Загадано число от 1 до 100, Попробуйте угадать");
+        for (int j = 0; j < 8; j++) {
+            if (n > t) {
+                t = 2 * t - t / 2 - t % 2;
+            } else {
+                t = t / 2 + t % 2;
+            }
+        }
+        for (int i = 0; i < 7; i++) {
+            Scanner in = new Scanner(System.in);
+            if (in.hasNextInt()) {
+                a = in.nextInt();
+                if (n == a) {
+                    System.out.println("Вы угадали, загаданное число это " + a);
+                    break;
+                }
+                if (n > a) {
+                    System.out.println("Загаданное число больше, попробуйте еще");
+                }
+                if (n < a) {
+                    System.out.println("Загаданное число меньше, попробуйте еще");
+                }
+            } else {
+                System.out.println("ВВедите число");
+            }
+        }
+        if (n != a) {
+            System.out.println("Вы не угадали за 8 попыток, загаданное число " + n);
+        }
+    }
+}
+
+
+
